@@ -27,7 +27,11 @@
             }
             return self::$config['mumemcached'];
         }
-
+        
+        /**
+         * 
+         * @return type
+         */
         public static function muredis() {
             if (!isset(self::$config['muredis'])) {
                 include_once PATH_LIB . DS . 'class.muredis.php';

@@ -8,7 +8,6 @@ class mudb {
     /*
      * mysql 集群
      */
-
     public function __construct($aServers = null) {
         if (is_array($aServers) && !empty($aServers)) {
             
@@ -43,7 +42,7 @@ class mudb {
 
     public function getOne($query) {
         if ($this->connect() && is_string(trim($query))) {
-            oo::logs()->debug(date("Y-m-d H:i:s") . " query " . $query, "getOne.txt");
+            oo::logs()->debug(date("Y-m-d H:i:s") . " query " . $query, "mysql/getOne.txt");
             $ret = $this->_pdo->query($query)->fetch(PDO::FETCH_ASSOC);
             $this->close();
             return $ret;
@@ -52,7 +51,7 @@ class mudb {
 
     public function getAll($query) {
         if ($this->connect() && is_string(trim($query))) {
-            oo::logs()->debug(date("Y-m-d H:i:s") . " query " . $query, "getAll.txt");
+            oo::logs()->debug(date("Y-m-d H:i:s") . " query " . $query, "mysql/getAll.txt");
             $ret = $this->_pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
             $this->close();
             return $ret;

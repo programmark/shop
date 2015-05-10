@@ -3,7 +3,7 @@
     class okey {
 
         public static function mtt($mid, $svid) {
-            return "$mid|$svid|mtt";
+            return "{$mid}|{$svid}|mtt";
         }
 
     }
