@@ -44,7 +44,9 @@
          * @return type
          */
         public function inrc($key, $value, $offst = 0) {
+            oo::logs()->debug(date("Y-m-d H:i:s") .__LINE__, "redis.txt");
             if (!empty($key) && $this->connect()) {
+                oo::logs()->debug(date("Y-m-d H:i:s"). __LINE__, "redis.txt");
                 $offst ? ($ret = $this->_redis->decr($key, $value)) : ($ret = $this->_redis->incr($key, $value));
                 return $ret;
             }
@@ -55,6 +57,16 @@
                 return $this->_redis->delete($key);
             }
         }
+        
+        public function close() {
+            $this->_redis->close();
+            $this->_redis = null;
+            $this->_connect = null;
+        }
+        
+        //public function __destruct() {
+        //    $this->_redis->close();
+        //}
 
     }
     

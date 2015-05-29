@@ -1,11 +1,13 @@
 <?php
 
     //初始化
-    require '../common.php';
+    require dirname(__FILE__) . '/../common.php';
 
     $cmd = isset($_GET['cmd']) ? '_' . $_GET['cmd'] : '_' . $_POST['cmd'];
-    if (!empty($cmd)) {
+    if (function_exists($cmd)) {
         $cmd();
+    } else {
+        die("Params Error");
     }
     
     function request($param) {

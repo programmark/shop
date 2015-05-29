@@ -56,8 +56,12 @@
         public function increment($key, $offset, $flag = 0) {
             if ($key && $this->connect()) {
                 $flag ? ($ret = $this->_mem->decrement($key, $offset)) : ($ret = $this->_mem->increment($key, $offset));
-                if ($this->_mem->getResultCode() == Memcached::RES_SUCCESS)
-                    return $ret;
+                if ($this->_mem->getResultCode() == Memcached::RES_NOTFOUND) {
+                    oo::logs()->debug(date("Y-m-d H:i:s"). __FILE__ . " " . __LINE__, "incre_txt");
+                    $this->_mem->set ($key, 0);
+                    //$flag ? ($ret = $this->_mem->decrement($key, $offset)) : ($ret = $this->_mem->increment($key, $offset));
+                }
+                if ($this->_mem->getResultCode() == Memcached::RES_SUCCESS)return $ret;
             }
         }
 

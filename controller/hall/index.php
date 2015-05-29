@@ -1,14 +1,12 @@
 <?php
 
-include 'init.php';
+include dirname(__FILE__) . '/../init.php';
 
 defined("IN_WEB") or die("Include Error");
 
-//$string = "sssssdddd\"wwwwwf";
-//p($string);
+oo::logs()->debug(date("Y-m-d H:i:s") . " index controller ". __FILE__. " " .__LINE__, 'controller/index.txt', 1);
 
-$commentList = array();
-oo::smarty()->assign('items', $commentList);
-oo::smarty()->display(PATH_VIEW . DS . "hall" . DS . 'comment.html');
+oo::smarty()->assign('pTitle', "hall center");
+oo::smarty()->display(PATH_VIEW . DS . "hall" . DS . 'index.html');
 
 

@@ -8,6 +8,7 @@
     define("PATH_MODEL", WEB_ROOT . DS . 'model');
     define("PATH_LIB", WEB_ROOT . DS . 'lib');
     define("PATH_CONFIG", WEB_ROOT . DS . 'config');
+    define("PATH_CFG", WEB_ROOT . DS . 'cfg');
     define("PATH_VIEW", WEB_ROOT . DS . 'view');
     define("PATH_LANG", WEB_ROOT . DS . 'lang');
 
@@ -18,8 +19,8 @@
     include(PATH_LIB . DS . 'functions.php');
     include(PATH_LIB . DS . 'okey.php');
 
+    functions::session_start();
     header('Content-type: text/html;charset=UTF-8');
-    set_time_limit(10);
 
     function p() {
         $aP = func_get_args();

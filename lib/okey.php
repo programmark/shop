@@ -6,5 +6,9 @@
             return "{$mid}|{$svid}|mtt";
         }
 
+        public static function warning() {
+            return 'warning';
+        }
+
     }
     

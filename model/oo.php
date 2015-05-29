@@ -14,7 +14,7 @@
          */
         public static function logs() {
             if (!isset(self::$config['logs'])) {
-                include_once PATH_MODEL . DS . 'class.logs.php';
+                include_once PATH_MODEL . DS . 'logs.php';
                 self::$config['logs'] = new logs();
             }
             return self::$config['logs'];
@@ -39,7 +39,7 @@
          */
         public static function mail() {
             if (!isset(self::$config['mail'])) {
-                include_once PATH_MODEL . DS . 'class.mail.php';
+                include_once PATH_LIB . DS . 'class.mail.php';
                 self::$config['mail'] = new mail();
             }
             return self::$config['mail'];
@@ -47,7 +47,7 @@
 
         public static function payment() {
             if (!isset(self::$config['payment'])) {
-                include_once PATH_MODEL . DS . 'class.payment.php';
+                include_once PATH_MODEL . DS . 'payment.php';
                 self::$config['memcached'] = new payment();
             }
             return self::$config['payment'];

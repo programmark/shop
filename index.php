@@ -1,7 +1,7 @@
 <?php
 
-    include('init.php'); 
-    p(ocache::mumemcached()->set("ad", 1234));
+    include dirname(__FILE__) . '/init.php'; 
+    $smarty = oo::smarty();
     
     $smarty->display(PATH_VIEW . DS . 'show.html');
     

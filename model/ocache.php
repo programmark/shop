@@ -34,7 +34,7 @@
          */
         public static function muredis() {
             if (!isset(self::$config['muredis'])) {
-                include_once PATH_LIB . DS . 'class.muredis.php';
+                include PATH_LIB . DS . 'class.muredis.php';
                 self::$config['muredis'] = new muredis();
             }
             return self::$config['muredis'];
