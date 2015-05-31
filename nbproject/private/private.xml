@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/mark/Documents/mac/code/php/shop/crontab/udplogs.php</file>
+            <file>file:/Users/mark/Documents/mac/code/php/shop/common.php</file>
+            <file>file:/Users/mark/Documents/mac/code/php/shop/controller/index/index.php</file>
+            <file>file:/Users/mark/Documents/mac/code/php/shop/lib/class.muredis.php</file>
+            <file>file:/Users/mark/Documents/mac/code/php/shop/public/css/hall.css</file>
         </group>
     </open-files>
 </project-private>

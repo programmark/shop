@@ -63,7 +63,14 @@
             $this->_redis = null;
             $this->_connect = null;
         }
-        
+
+        public function rPush($key, $val){
+            if (!empty($key) && $this->_connect) {
+                return $this->_redis->rPush($key, $val);
+            }
+        }
+
+
         //public function __destruct() {
         //    $this->_redis->close();
         //}

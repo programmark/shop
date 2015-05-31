@@ -22,11 +22,20 @@ body{
     font-weight: 600;
 }
 
-.index.welcome{
+.index .welcome{
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: larger;
     float: left;
 }
 
-.index.login{
-    margin-top: 200px;
+.index .login{
+    margin-top: 5px;
+    margin-left: 700px;
     float: left;
 }
+
+.index .login a{
+    text-decoration: none;
+}
+

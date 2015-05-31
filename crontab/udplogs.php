@@ -14,7 +14,7 @@ while (1) {
     $content = socket_recvfrom($socket, $buf, 4096, 0, $ip, $port);
     if ($content == -1) break;
 
-    //socket_close($socket);
+    socket_close($socket);
 
     $aRet = explode(',', $buf);
 
