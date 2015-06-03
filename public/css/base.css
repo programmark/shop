@@ -1,0 +1,9 @@
+body{
+    border: saddlebrown;
+    width: 950px;
+    height: 1600px;
+    margin:auto;
+    border:solid 1px snow;
+    background-color: silver;
+    /*background-image: url(/public/images/DSC_0488.JPG)*/
+}
