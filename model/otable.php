@@ -2,7 +2,8 @@
 
     class otable {
 
-        public $tbluser = "user";
+        public $user = "user";
+        public $online = "online";
         public $comment = "comment";
 
 

@@ -1,0 +1,14 @@
+.index {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.index #username {
+    background-color: aquamarine;
+    margin-top: 10px;
+}
+
+.index #password {
+    margin-top: 10px;
+    background-color: aquamarine;
+}
