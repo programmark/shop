@@ -1,0 +1,25 @@
+.index{
+    background-color: #ffffff;
+    font-weight: 600;
+}
+
+.index .welcome{
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: larger;
+    float: left;
+}
+
+.index .login{
+    margin-top: 9px;
+    margin-left: 600px;
+    float: left;
+}
+
+.index .login a{
+    text-decoration: none;
+}
+
+.index .username{
+    text-align: center;
+}

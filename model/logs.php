@@ -24,7 +24,7 @@ class logs extends otable {
         if (!is_dir($dirname))
             @mkdir($dirname, 0777, true);
         if (file_exists($file)) {
-            (filesize($file) > 1 * 1024 * 1024) && unlink($file); //1M
+            (filesize($file) > 1 * 1024 * 1024) && copy($file, '/tmp/'.$file) && unlink($file); //1M
         }
         file_put_contents($file, $string . "\n", FILE_APPEND);
     }

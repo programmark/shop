@@ -3,7 +3,8 @@
     class mumongo {
 
         private $_client = null;
-        private $_con = null;
+        private $_connect = null;
+        private $_connectd = null;
 
         /*
          * mongo 集群
@@ -19,20 +20,23 @@
          * 
          */
         public function connect() {
-            if (file_exists(PATH_CONFIG . DS . 'app.ini')) {
+            if (!$this->_connectd) {
+              if (file_exists(PATH_CONFIG . DS . 'app.ini')) {
+                $aIni = parse_ini_file(PATH_CONFIG . DS . 'app.ini', true);
+                $host = $aIni['mongo']['host'];
+                $port = $aIni['mongo']['port'];
+                $db = $aIni['mongo']['db'];
                 try {
-                    $aIni = parse_ini_file(PATH_CONFIG . DS . 'app.ini', true);
-                    $host = $aIni['mongo']['host'];
-                    $port = $aIni['mongo']['port'];
-                    $db = $aIni['mongo']['db'];
-                    $this->_con = new MongoClient("mongodb://{$host}:{$port}");
-                    $this->_client = $this->_con->selectDB($db);
+                    $this->_connect = new MongoClient("mongodb://{$host}:{$port}");
+                    $this->_client = $this->_connect->selectDB($db);
+                    $this->_connectd = true;
                 } catch (MongoConnectionException $exc) {
+                    oo::logs()->debug(date("Y-m-d H:i:s") . $exc->getTraceAsString(), 'mumongoerror.txt');
                     echo $exc->getTraceAsString();
-                    die;
                 }
-                return true;
+              }
             }
+            return $this->_connectd;
         }
 
         public function selectCollection($table) {

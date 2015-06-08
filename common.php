@@ -21,6 +21,7 @@
 
     functions::session_start();
     header('Content-type: text/html;charset=UTF-8');
+    if (!defined("IN_WEB")) die("Not Command Line");
 
     function p() {
         $aP = func_get_args();

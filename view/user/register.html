@@ -16,9 +16,51 @@
 </head>
 <body>
 <div class="index">
-    <input type="text" id="username"/> 账号：<br />
-    <input type="password" id="password"/> 密码：<br />
-    <input type="submit" onclick="register()" value="注册"/>
+    <!--<input type="text" id="username"/> 账号：<br />-->
+    <!--<input type="password" id="password"/> 密码：<br />-->
+    <!--<input type="submit" onclick="register()" value="注册"/>-->
 </div>
+<!--<input type="text" value="1"/>-->
+<!--<input type="text" value="2"/>-->
+<!--<input type="text" value="3"/>-->
+<input id="check" type="checkbox"/>全选 <br />
+<input type="checkbox" value="1"><br />
+<input type="checkbox" value="2"><br />
+<input type="checkbox" value="3"><br />
+<input type="checkbox" value="4"><br />
+<input type="checkbox" value="66"><br />
 </body>
+<script type="text/javascript">
+    window.onload = function () {
+        /*var aBtn = document.getElementsByTagName('input');
+        var i = 0;
+        for(i=0; i<aBtn.length; i++) {
+            aBtn[i].onclick = function() {
+                alert(this.value);
+                this.backgroundColor = 'red';
+            }
+        }*/
+        var check = document.getElementById('check');
+        var aC = document.getElementsByTagName('input');
+        var i=0;
+        check.onclick = function() {
+//            if (check.checked == 0) {
+                //check.checked = 1;
+                for(i=0; i<aC.length; i++) {
+                    aC[i].checked = 1;
+//                this.checked = 1;
+//                }
+            } else {
+                check.checked = 0;
+                for(i=0; i<aC.length; i++) {
+                    aC[i].checked = 0;
+//                this.checked = 1;
+                }
+            }
+
+        }
+
+
+    }
+</script>
 </html>

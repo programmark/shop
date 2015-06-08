@@ -11,17 +11,21 @@
 
         public function connect() {
             if (!class_exists("Redis"))die("Requires Redis Excption");
-            $aIni = parse_ini_file(PATH_CONFIG . DS . 'app.ini', true);
-            $host = $aIni['redis']['host'];
-            $port = $aIni['redis']['port'];
-            for ($try = 0; $try < 3; $try++) {
-                $flag = $this->_redis->connect($host, $port);
-                if ($flag){
-                    break;
+            if (!$this->_connect) {
+                $aIni = parse_ini_file(PATH_CONFIG . DS . 'app.ini', true);
+                $host = $aIni['redis']['host'];
+                $port = $aIni['redis']['port'];
+                for ($try = 0; $try < 3; $try++) {
+                    $flag = $this->_redis->connect($host, $port);
+                    if ($flag){
+                        break;
+                    }
                 }
+                $this->_connect = true;
+                return $flag;
             }
-            $flag && $this->_connect = TRUE;
-            return $flag;
+            return $this->_connect;
+
         }
 
         public function get($key) {
@@ -70,10 +74,12 @@
             }
         }
 
+        public function lsize($key){
+            if (!empty($key) && $this->connect()) {
+                return $this->_redis->lSize($key);
+            }
+        }
 
-        //public function __destruct() {
-        //    $this->_redis->close();
-        //}
 
     }
     

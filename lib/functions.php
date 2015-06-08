@@ -12,10 +12,9 @@ class functions {
     public static function getServerIp() {
         if (php_sapi_name() == "cli") {
             $ss = exec('/sbin/ifconfig eth0 | sed -n \'s/^ *.*addr:\\([0-9.]\\{7,\\}\\) .*$/\\1/p\'', $arr);
-            $ret = $arr[0];
-            return $ret;
+            return $arr[0];
         }
-        return (string)$_SERVER['HTTP_HOST'];
+        return (string) $_SERVER['HTTP_HOST'];
     }
 
     public static function curl($url, $timeout = 20) {
@@ -43,6 +42,13 @@ class functions {
     public static function session_start() {
         if (empty(session_id())) {
             session_start();
+        }
+    }
+
+    public static function session($param){
+        if (is_array($param)) {
+            $_SESSION['user']['username'] = $param['username'];
+
         }
     }
 
