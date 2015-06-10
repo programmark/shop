@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d421795a-355f-4dc7-9720-afc00302f035" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ajax/goods.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/class.mudb.php" afterPath="$PROJECT_DIR$/lib/class.mudb.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/class.muredis.php" afterPath="$PROJECT_DIR$/lib/class.muredis.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/functions.php" afterPath="$PROJECT_DIR$/lib/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/index.css" afterPath="$PROJECT_DIR$/public/css/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/index/index.html" afterPath="$PROJECT_DIR$/view/index/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/index/index.php" afterPath="$PROJECT_DIR$/controller/index/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/user/login.html" afterPath="$PROJECT_DIR$/view/user/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/logs.php" afterPath="$PROJECT_DIR$/model/logs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/odb.php" afterPath="$PROJECT_DIR$/model/odb.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/oo.php" afterPath="$PROJECT_DIR$/model/oo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/user/register.html" afterPath="$PROJECT_DIR$/view/user/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/user.css" afterPath="$PROJECT_DIR$/public/css/user.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/user.js" afterPath="$PROJECT_DIR$/public/js/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ajax/user.php" afterPath="$PROJECT_DIR$/ajax/user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="shop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -366,41 +351,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="logs.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="logs.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/logs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923" vertical-offset="34" max-vertical-offset="901">
+            <state vertical-scroll-proportion="0.5802048" vertical-offset="34" max-vertical-offset="901">
               <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.mudb.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/class.mudb.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1428">
-              <caret line="11" column="48" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.muredis.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/class.muredis.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1547">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.mumemcached.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/class.mumemcached.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69624573" vertical-offset="17" max-vertical-offset="1751">
-              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -840,13 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/class.mumongo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="28.461538" vertical-offset="1114" max-vertical-offset="1700">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Redis.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="45.604095" vertical-offset="170" max-vertical-offset="52683">
@@ -966,34 +914,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/logs.php">
+    <entry file="file://$PROJECT_DIR$/lib/class.mumemcached.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923" vertical-offset="34" max-vertical-offset="901">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/class.mudb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1428">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="48" />
+        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="1751">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/class.muredis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1547">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1564">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/class.mumemcached.php">
+    <entry file="file://$PROJECT_DIR$/lib/class.mudb.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69624573" vertical-offset="17" max-vertical-offset="1751">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.31911263" vertical-offset="0" max-vertical-offset="1428">
+          <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/class.mumongo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.058020476" vertical-offset="0" max-vertical-offset="1700">
+          <caret line="2" column="19" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/logs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5802048" vertical-offset="34" max-vertical-offset="901">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
           <folding />
         </state>
       </provider>

@@ -8,6 +8,7 @@
 
         public function __construct($aServers = null, $persistent) {
             $this->_redis = new Redis();
+            $this->persistent = $persistent;
         }
 
         public function connect() {
