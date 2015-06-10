@@ -6,7 +6,7 @@
 
         public static function db() {
             if (!isset(self::$config['db'])) {
-                include PATH_LIB . DS . 'class.mudb.php';
+                include_once PATH_LIB . DS . 'class.mudb.php';
                 $param = array();
                 self::$config['db'] = new mudb($param);
             }
@@ -15,7 +15,7 @@
 
         public static function dbslave() {
             if (!isset(self::$config['dbslave'])) {
-                include PATH_LIB . DS . 'class.mudb.php';
+                include_once PATH_LIB . DS . 'class.mudb.php';
                 $param = array();
                 self::$config['dbslave'] = new mudb($param);
             }

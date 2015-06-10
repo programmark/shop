@@ -1,5 +1,0 @@
-<?php
-
-    include("init.php");
-
-    

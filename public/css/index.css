@@ -12,14 +12,29 @@
 
 .index .login{
     margin-top: 9px;
-    margin-left: 600px;
-    float: left;
+    margin-right: 10px;
+    float: right;
 }
 
 .index .login a{
     text-decoration: none;
+    color: black;
 }
 
 .index .username{
     text-align: center;
+}
+
+.comment {
+    margin-top: 30px;
+}
+
+.comment #contact {
+    float: left;
+}
+
+.comment #person {
+    float: right;
+    height: 30px;
+    width: 250px;
 }

@@ -4,8 +4,9 @@
 
         private $_redis = null;
         private $_connect = null;
+        private $persistent = false;//长连接
 
-        public function __construct() {
+        public function __construct($aServers = null, $persistent) {
             $this->_redis = new Redis();
         }
 
@@ -16,7 +17,7 @@
                 $host = $aIni['redis']['host'];
                 $port = $aIni['redis']['port'];
                 for ($try = 0; $try < 3; $try++) {
-                    $flag = $this->_redis->connect($host, $port);
+                    $this->persistent ? $flag = $this->_redis->pconnect($host, $port) : $flag = $this->_redis->connect($host, $port);
                     if ($flag){
                         break;
                     }

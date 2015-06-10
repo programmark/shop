@@ -5,34 +5,6 @@
      */
     include dirname(__FILE__) . '/init.php';
 
-    //登陆
-    function _login() {
-        $username = request('username');
-        $password = request('password');
-        $aRet = array();
-        if (_cofirm($username)) {
-            $aRet['msg'] = "用户名不存在";
-            $aRet['flag'] = -1;
-        } else {
-            $query = "SELECT password FROM " . oo::logs()->user . " WHERE username = '$username' LIMIT 1";
-            oo::logs()->debug(date("Y-m-d H:i:s") . " query " . $query, __FUNCTION__ . 'txt');
-            $ret = odb::db()->getOne($query);
-            if ($ret['password'] !== md5($password)) {
-                $aRet['msg'] = "密码错误";
-                $aRet['flag'] = -2;
-            } else {
-                $aRet['msg'] = "登陆成功";
-                $aRet['flag'] = 1;
-                $param = array(
-                    'username' => $username,
-                );
-                functions::session($param);
-            }
-        }
-        echo json_encode($aRet);
-        die;
-
-    }
 
     //注册
     function _register() {
@@ -56,12 +28,46 @@
                 $aRet['flag'] = 1;
                 $param = array(
                     'username' => $username,
+                    'id' => $ret['id'],
                 );
                 functions::session($param);
             }
         }
         echo json_encode($aRet);
         die;
+    }
+
+    //登陆
+    function _login() {
+        $username = request('username');
+        $password = request('password');
+        $aRet = array();
+        if (_cofirm($username)) {
+            $aRet['msg'] = "用户名不存在";
+            $aRet['flag'] = -1;
+        } else {
+            $query = "SELECT id, password, nomal FROM " . oo::logs()->user . " WHERE username = '$username' LIMIT 1";
+            oo::logs()->debug(date("Y-m-d H:i:s") . " query " . $query, __FUNCTION__ . 'txt');
+            $ret = odb::db()->getOne($query);
+            if ($ret['password'] !== md5($password)) {
+                $aRet['msg'] = "密码错误";
+                $aRet['flag'] = -2;
+            } else if ($ret['nomal'] == 0) {
+                $aRet['msg'] = "账号异常，请联系客服";
+                $aRet['flag'] = -3;
+            } else {
+                $aRet['msg'] = "登陆成功";
+                $aRet['flag'] = 1;
+                $param = array(
+                    'username' => $username,
+                    'id' => $ret['id'],
+                );
+                functions::session($param);
+            }
+        }
+        echo json_encode($aRet);
+        die;
+
     }
 
     //登出

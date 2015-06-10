@@ -4,13 +4,14 @@ class mudb {
 
     private $_connect = false;
     private $_pdo = null;
+    private $persistent = false;//长连接
 
     /*
      * mysql 集群
      */
-    public function __construct($aServers = null) {
+    public function __construct($aServers = null, $persistent) {
         if (is_array($aServers) && !empty($aServers)) {
-            
+            $this->persistent = $persistent;
         }
     }
 
@@ -31,9 +32,9 @@ class mudb {
             $_port = $aIni['port'];
             $_dsn = "mysql:host={$_host};dbname={$_db};port={$_port}";
             try {
-                $this->_pdo = new PDO($_dsn, $_user, $_pwd);
+                $this->persistent ? $this->_pdo = new PDO($_dsn, $_user, $_pwd, array(PDO::ATTR_PERSISTENT => true)) : $this->_pdo = new PDO($_dsn, $_user, $_pwd);
                 $this->_connect = true;
-                return true;
+                return $this->_connect;
             } catch (PDOException $e) {
                 oo::logs()->debug(date("Y-m-d H:i:s") . ' Mysql Connection failed: ' . $e->getMessage(), "mudberror.txt");
             }
@@ -62,8 +63,9 @@ class mudb {
     public function query($query) {
         if ($this->connect() && is_string(trim($query))) {
             oo::logs()->debug(date("Y-m-d H:i:s") . " sql " . $query, "mysql/query.txt");
-            $ret = $this->_pdo->exec($query);
-            $this->close();
+            $ret = array();
+            $ret['other'] = $this->_pdo->exec($query);
+            $ret['id'] = $this->_pdo->lastInsertId();
             return $ret;
         }
     }

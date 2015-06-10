@@ -48,7 +48,7 @@ class functions {
     public static function session($param){
         if (is_array($param)) {
             $_SESSION['user']['username'] = $param['username'];
-
+            $_SESSION['user']['id'] = $param['id'];
         }
     }
 

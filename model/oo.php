@@ -53,5 +53,14 @@
             return self::$config['payment'];
         }
 
+
+        public static function minfo(){
+            if (!isset(self::$config['minfo'])) {
+                include_once PATH_MODEL . DS . 'minfo.php';
+                self::$config['minfo'] = new minfo();
+            }
+            return self::$config['minfo'];
+        }
+
     }
     

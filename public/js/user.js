@@ -24,7 +24,6 @@ function register() {
                 alert("用户名已存在");
                 return ;
             } else {
-                alert("注册成功");
                 window.location.href = "/controller/index/";//跳转
             }
 
@@ -47,16 +46,13 @@ function login() {
         data: "cmd=login&username=" + username + "&password=" + password,
         success: function(msg) {
             var msg = $.parseJSON(msg);
-            if (msg['flag'] == -1) {
-                alert("用户名不存在");
-                return ;
-            } else if (msg['flag'] == -2) {
-                alert("密码错误");
-                return ;
-            } else {
-                alert("登陆成功");
+            if (msg['flag'] == 1) {
                 window.location.href = "/controller/index/";//跳转
+            } else {
+                alert(msg['msg']);
+                return;
             }
+
 
         }
     })
@@ -72,7 +68,6 @@ function layout() {
         success: function(msg) {
             var msg = $.parseJSON(msg);
             if (msg['flag'] == 1) {
-                alert("登出成功");
                 location.reload();
             }
         }
