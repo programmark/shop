@@ -11,6 +11,7 @@
         <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon"/>
 	    <link type="text/css" rel="stylesheet" href="/public/css/base.css"/>
         <link type="text/css" rel="stylesheet" href="/public/css/index.css"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="/public/images/apple.png" />
         <script type="text/javascript" src="/public/js/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="/public/js/user.js"></script>
     </head>
@@ -29,9 +30,12 @@
         <div class="comment">
             <div id="contact">contact</div>
             <div id="person">
-                <div>加入时间：{{$registertime}}</div>
+                <div>加入时间：{{if $registertime}}{{$registertime}}{{/if}}</div>
                 <div></div>
             </div>
+        </div>
+        <div class="online">
+            {{$online}}人在线
         </div>
     </body>
     <script>

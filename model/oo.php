@@ -5,12 +5,15 @@
         public static $config = array();
 
         public function __construct() {
-            
+
+        }
+
+        public static function config($config) {
+            self::$config =  array_merge($config, self::$config);
         }
 
         /**
-         * 
-         * @return \debugModel
+         * @return mixed
          */
         public static function logs() {
             if (!isset(self::$config['logs'])) {
@@ -45,6 +48,9 @@
             return self::$config['mail'];
         }
 
+        /**
+         * @return mixed
+         */
         public static function payment() {
             if (!isset(self::$config['payment'])) {
                 include_once PATH_MODEL . DS . 'payment.php';
@@ -54,6 +60,9 @@
         }
 
 
+        /**
+         * @return mixed
+         */
         public static function minfo(){
             if (!isset(self::$config['minfo'])) {
                 include_once PATH_MODEL . DS . 'minfo.php';

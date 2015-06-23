@@ -4,9 +4,14 @@
 
         private $_mem = null;
         private $_connected = null;//是否已连接
+        private $aServer = array();
 
-        public function __construct() {
+        public function __construct($aServer) {
             $this->_mem = new Memcached();
+            if (empty($aServer) || !is_array($aServer)) {
+                return false;
+            }
+            $this->aServer = $aServer;
         }
 
         /*
@@ -17,9 +22,8 @@
             if ($this->_mem && $this->_connected) {
                 return true;
             } else {
-                $aIni = parse_ini_file(PATH_CONFIG . DS . 'app.ini', true);
-                $host = $aIni['memcached']['host'];
-                $port = $aIni['memcached']['port'];
+                $host = $this->aServer['host'];
+                $port = $this->aServer['port'];
                 //重连三次
                 for ($try = 0; $try < 3; $try++) {
                     $flag = $this->_mem->addServer($host, $port);
@@ -68,7 +72,7 @@
         public function delete($key) {
             if ($key && $this->connect()) {
                 $this->_mem->delete($key);
-                if ($this->_mem->getResultCode() == Memcached::MEMCACHED_SUCCESS) {
+                if ($this->_mem->getResultCode() == Memcached::RES_SUCCESS) {
                     return true;
                 } else {
                     return false;

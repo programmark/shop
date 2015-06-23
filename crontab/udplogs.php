@@ -10,14 +10,10 @@ if (!$socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP)) {
 socket_bind($socket, $args['h'], $args['p']);
 while (1) {
     $ip = '';
-    $port = 0;
-    $content = socket_recvfrom($socket, $buf, 4096, 0, $ip, $port);
+    $content = socket_recvfrom($socket, $buf, 4096, 0, $ip, $port);//return length
     if ($content == -1) break;
-
     socket_close($socket);
-
     $aRet = explode(',', $buf);
-
     $file = WEB_ROOT . DS . "logs" . DS . $aRet[1] . ".php";
     oo::logs()->debug(date("Y-m-d H:i:s") . $content . " " . json_encode($buf). " ip " . $args['h']. " port " . $args['p'], "socket.txt");
     $dirname = dirname($file);

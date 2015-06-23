@@ -1,7 +1,7 @@
 <?php
 
     define("IN_WEB", true);
-    define("WEB_ROOT", __DIR__);
+    define("WEB_ROOT", dirname(__FILE__));
     define("DS", DIRECTORY_SEPARATOR);
     define("PS", PATH_SEPARATOR);
     define("PRODUCTION_SERVER", true);
@@ -12,16 +12,18 @@
     define("PATH_VIEW", WEB_ROOT . DS . 'view');
     define("PATH_LANG", WEB_ROOT . DS . 'lang');
 
-    include(PATH_MODEL . DS . 'oo.php');
     include (PATH_MODEL . DS . 'odb.php');//实现业务分db
     include(PATH_MODEL . DS . 'ocache.php');//实现业务分cache
     include(PATH_MODEL . DS . 'otable.php');
     include(PATH_LIB . DS . 'functions.php');
     include(PATH_LIB . DS . 'okey.php');
+    include (PATH_CFG . DS . 'recv.php');//加载配置信息
+    include(PATH_MODEL . DS . 'oo.php');
 
-    functions::session_start();
     header('Content-type: text/html;charset=UTF-8');
     if (!defined("IN_WEB")) die("Not Command Line");
+    oo::config($config);//加载配置信息
+    functions::init();//统计pv
 
     function p() {
         $aP = func_get_args();
@@ -43,15 +45,3 @@
         die;
     }
 
-    function microtime_float() {
-        list($usec, $sec) = explode(" ", microtime());
-        return ((float) $usec + (float) $sec);
-    }
-
-    function alterMsg($msg, $start_time = '') {
-        $start_time = $start_time ? $start_time : microtime_float();
-        $end_time = microtime_float();
-        $runtime = round(($end_time - $start_time) * 1000);
-        echo "$msg  (times:" . $runtime . "ms);<br>";
-    }
-    

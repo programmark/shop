@@ -10,5 +10,9 @@
             return 'warning';
         }
 
+        public static function pv() {
+            return date("Y-m-d") . '|pv';
+        }
+
     }
     

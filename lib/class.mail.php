@@ -40,7 +40,7 @@
                 $mail->Send();
                 //echo '邮件已发送';
             } catch (phpmailerException $e) {
-                oo::logs()->debug(date("Y-m-d H:i:s") . $e->errorMessage(), "mailerror.txt");
+                oo::logs()->debug(date("Y-m-d H:i:s") . $e->errorMessage() . ' to ' . $to[0], "mailerror.txt");
             }
         }
 

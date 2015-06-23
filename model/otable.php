@@ -2,9 +2,9 @@
 
     class otable {
 
-        public $user = "user";
-        public $online = "online";
-        public $comment = "comment";
+        public $user = 'user';
+        public $comment = 'comment';
+        public $warning = 'warning';
 
 
     }

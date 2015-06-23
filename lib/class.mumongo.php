@@ -4,37 +4,39 @@
 
         private $_client = null;
         private $_connect = null;
-        private $_connectd = null;
+        private $_connectd = null;//是否已连接
+        private $aServer = array();
 
         /*
          * mongo 集群
          */
 
         public function __construct($aServers = null) {
-            if (is_array($aServers) && !empty($aServers)) {
-                
+            if (empty($aServers) || !is_array($aServers)) {
+                return false;
             }
+            $this->aServer = $aServers;
         }
 
         /**
          * 
          */
         public function connect() {
-            if (!$this->_connectd) {
-              if (file_exists(PATH_CONFIG . DS . 'app.ini')) {
-                $aIni = parse_ini_file(PATH_CONFIG . DS . 'app.ini', true);
-                $host = $aIni['mongo']['host'];
-                $port = $aIni['mongo']['port'];
-                $db = $aIni['mongo']['db'];
+            if ($this->_connectd) {
+                return $this->_connectd;
+            } else  {
+                $host = $this->aServer['host'];
+                $port = $this->aServer['port'];
+                $db = $this->aServer['db'];
                 try {
                     $this->_connect = new MongoClient("mongodb://{$host}:{$port}");
                     $this->_client = $this->_connect->selectDB($db);
                     $this->_connectd = true;
                 } catch (MongoConnectionException $exc) {
+                    $this->_connectd = false;
                     oo::logs()->debug(date("Y-m-d H:i:s") . $exc->getTraceAsString(), 'mumongoerror.txt');
                     echo $exc->getTraceAsString();
                 }
-              }
             }
             return $this->_connectd;
         }
